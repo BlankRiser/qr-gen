@@ -4,7 +4,7 @@ import "./App.css";
 import { QRCodeCanvas } from "qrcode.react";
 
 function App() {
-  const [url, setUrl] = useState("");
+  const [url, setUrl] = useState("https://github.com/BlankRiser");
   const qrRef = useRef<HTMLDivElement>(null);
 
   const downloadQRCode = (e: FormEvent) => {
@@ -17,12 +17,11 @@ function App() {
     document.body.appendChild(anchor);
     anchor.click();
     document.body.removeChild(anchor);
-    setUrl("");
   };
 
   const qrcode = (
     <QRCodeCanvas
-      value={"https://github.com/BlankRiser"}
+      value={url}
       size={128}
       bgColor={"#ffffff"}
       fgColor={"#000000"}
